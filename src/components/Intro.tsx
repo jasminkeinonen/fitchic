@@ -9,8 +9,8 @@ interface IntroProps {
 const Intro: React.FC<IntroProps> = ({ onSkip }) => {
     return (
         <div className="intro-container">
-            <h1>Welcome to my App!</h1>
-            <p>This is a brief introduction to our application.</p>
+            <h1>Welcome to my Application!</h1>
+            <p>Next you can continue to our login and sign-up page!</p>
             <IonButton onClick={onSkip} expand="full">
                 Skip Intro
             </IonButton>

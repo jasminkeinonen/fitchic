@@ -1,43 +1,42 @@
-import { IonButton, IonContent, IonHeader, IonIcon, IonItem, IonMenu, IonMenuToggle, IonPage, IonRouterOutlet, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
-import { Redirect, Route } from 'react-router';
-import List from './List';
-import Settings from './Settings';
-import { homeOutline, logOutOutline, newspaperOutline } from 'ionicons/icons';
+import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonLabel } from '@ionic/react';
+import { useHistory } from 'react-router-dom';
+import './Menu.css';
 
 const Menu: React.FC = () => {
-    const paths = [
-        {name: 'Home', url: '/app/list', icon: homeOutline },
-        {name: 'Settings', url: '/app/settings', icon: newspaperOutline },
-    ];
+    const history = useHistory();
 
-  return (
-    <IonPage>
-        <IonMenu contentId="main">
+    const navigateTo = (path: string) => {
+        history.push(path);
+    };
+
+    return (
+        <IonMenu contentId="main-content">
             <IonHeader>
                 <IonToolbar color={'primary'}>
                     <IonTitle>Menu</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent>
-{paths.map((item, index) => (
-<IonItem routerLink={item.url} key={index}>
-    {item.name}
-</IonItem>
-))}
-
+                <IonList>
+                    <IonItem button onClick={() => navigateTo('/login')}>
+                        <IonLabel>Login</IonLabel>
+                    </IonItem>
+                    <IonItem button onClick={() => navigateTo('/register')}>
+                        <IonLabel>Register</IonLabel>
+                    </IonItem>
+                    <IonItem button onClick={() => navigateTo('/list')}>
+                        <IonLabel> User List</IonLabel>
+                    </IonItem>
+                
+                    <IonItem button onClick={() => navigateTo('/settings')}>
+                        <IonLabel>User Settings</IonLabel>
+                    </IonItem>
+                    
+                </IonList>
             </IonContent>
         </IonMenu>
-
-        <IonRouterOutlet id="main">
-    <Route exact path="/app/list" component={List} />
-    <Route exact path="/app/settings" component={Settings} />
-    <Route exact path="app">
-        <Redirect to="/app/list"/>
-    </Route>
-    </IonRouterOutlet>
-    </IonPage>
-  );
+    );
 };
 
 export default Menu;

@@ -43,7 +43,7 @@ import {
     const clearList = () => {
       showAlert({
         header: 'Confirm!',
-        message: 'Are you sure you want to delete all users?',
+        message: 'Warning! Are you sure you want to delete all users?',
         buttons: [
           { text: 'Cancel', role: 'cancel' },
           {
@@ -69,16 +69,16 @@ import {
     return (
       <IonPage ref={pageRef}>
         <IonHeader>
-          <IonToolbar color="success">
+          <IonToolbar color={'primary'}>
             <IonButtons slot="start"><IonMenuButton /></IonButtons>
-            <IonTitle>List</IonTitle>
+            <IonTitle>User List</IonTitle>
             <IonButtons slot="end">
               <IonButton onClick={clearList}>
                 <IonIcon slot="icon-only" icon={trashBinOutline} color="light" />
               </IonButton>
             </IonButtons>
           </IonToolbar>
-          <IonToolbar color="success"><IonSearchbar /></IonToolbar>
+          <IonToolbar color="primary"><IonSearchbar /></IonToolbar>
         </IonHeader>
   
         <IonContent>
