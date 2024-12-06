@@ -1,4 +1,10 @@
-ion-menu ion-item:hover {
-    background-color: #d446aa !important; 
-    color: #000 !important; 
+
+.ion-menu .ion-list .ion-item:hover {
+    background-color: #E0B5BC !important; 
+    color: #ECC9CF !important; 
+}
+
+.ion-menu .ion-list .ion-item:hover ion-label,
+.ion-menu .ion-list .ion-item:hover ion-icon {
+    color: #ECC9CF !important; 
 }

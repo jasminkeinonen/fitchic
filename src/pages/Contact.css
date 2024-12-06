@@ -1,0 +1,20 @@
+.custom-input, .custom-textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #E20470; 
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    color: #E20470; 
+}
+
+.custom-input::placeholder, .custom-textarea::placeholder {
+    color: #E20470;
+}
+
+.custom-input:focus, .custom-textarea:focus {
+    border-color: #E20470; 
+    outline: none;
+}

@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@400&display=swap');
+
+body, .intro-container {
+  height: 100vh;
+  margin: 0;
+  background-color: #ECC9CF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 36px;
+  color: #E20470;
+  margin-bottom: 20px;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color: #E20470;
+  margin-bottom: 40px;
+}
+
+.custom-button {
+  --background: #E20470;
+  --color: #fff;
+}

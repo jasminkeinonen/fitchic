@@ -43,7 +43,7 @@ import {
     const clearList = () => {
       showAlert({
         header: 'Confirm!',
-        message: 'Warning! Are you sure you want to delete all users?',
+        message: 'Warning! Are you sure you want to delete all friends?',
         buttons: [
           { text: 'Cancel', role: 'cancel' },
           {
@@ -51,7 +51,7 @@ import {
             handler: () => {
               setUsers([]);
               showToast({
-                message: 'All users deleted',
+                message: 'All friends deleted',
                 duration: 2000,
                 color: 'danger',
               });
@@ -71,7 +71,7 @@ import {
         <IonHeader>
           <IonToolbar color={'primary'}>
             <IonButtons slot="start"><IonMenuButton /></IonButtons>
-            <IonTitle>User List</IonTitle>
+            <IonTitle>My Fit Chic Friends</IonTitle>
             <IonButtons slot="end">
               <IonButton onClick={clearList}>
                 <IonIcon slot="icon-only" icon={trashBinOutline} color="light" />

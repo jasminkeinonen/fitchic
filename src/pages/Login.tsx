@@ -1,20 +1,24 @@
-import {
-    IonContent,IonCard,IonButton,IonHeader,IonIcon,IonInput,IonPage,IonTitle,IonToolbar,IonCardContent,IonButtons,IonMenuButton,IonToast
-} from '@ionic/react';
+import React, { useState } from 'react';
+import { IonContent, IonCard, IonButton, IonHeader, IonIcon, IonInput, IonPage, IonTitle, 
+    IonToolbar, IonCardContent, IonButtons, IonMenuButton, IonToast } from '@ionic/react';
 import { logInOutline, personCircleOutline } from 'ionicons/icons';
-import React, { useState } from 'react'; 
-import Logo from '../assets/hmmh.jpg';
-import Intro from '../components/Intro'; 
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { useHistory } from 'react-router-dom';
 import { auth } from '../firebaseConfig'; 
+import Intro from '../components/Intro'; 
+import './SharedStyles.css';
 
 const Login: React.FC = () => {
     const [introSeen, setIntroSeen] = useState(false);
     const [showToast, setShowToast] = useState(false); 
+    const history = useHistory();
 
+    // Simulated login
     const doLogin = (event: React.FormEvent) => {
         event.preventDefault();
-        console.log('doLogin');
+        console.log('Simulating login...');
+        history.push('/home');
+        setShowToast(true); 
     };
 
     const handleSkipIntro = () => {
@@ -28,6 +32,7 @@ const Login: React.FC = () => {
             const user = result.user;
             console.log("User logged in successfully:", user);
             setShowToast(true); 
+            history.push('/home');
         } catch (error) {
             console.error("Error during Google Sign-In:", error);
         }
@@ -40,58 +45,57 @@ const Login: React.FC = () => {
             ) : (
                 <IonPage>
                     <IonHeader>
-                        <IonToolbar color={'primary'}>
+                        <IonToolbar>
                             <IonButtons slot="start">
-                                <IonMenuButton /> 
+                                <IonMenuButton />
                             </IonButtons>
-                            <IonTitle>My Login Page</IonTitle>
+                            <IonTitle>Login</IonTitle>
                         </IonToolbar>
                     </IonHeader>
 
-                    <IonContent>
+                    <IonContent style={{ backgroundColor: "#E0B5BC" }}>
                         <div className="ion-text-center ion-padding">
-                            <img src={Logo} alt='Logo' width={'14%'} />
+                            <img src="/Logo.png" alt="Logo" width="300" />
                         </div>
-                        <p>Already have an account? Please fill up your information</p>
+                        <h1>Login</h1>
+                        <p>Already have an account?</p>
+                        
                         <IonCard>
                             <IonCardContent>
                                 <form onSubmit={doLogin}>
-                                    <IonInput 
-                                        fill="outline" 
-                                        labelPlacement="floating" 
+                                    <IonInput
+                                        fill="outline"
+                                        labelPlacement="floating"
                                         label="Email"
-                                        type="email" 
-                                        placeholder="emailaddress@address.com" 
-                                        required
-                                    ></IonInput>
-                                    <IonInput 
-                                        className="ion-margin-top" 
-                                        fill="outline" 
-                                        labelPlacement="floating" 
+                                        placeholder="emailaddress@address.com"
+                                        className="custom-input"
+                                    />
+                                    <IonInput
+                                        className="ion-margin-top custom-input"
+                                        fill="outline"
+                                        labelPlacement="floating"
                                         label="Password"
-                                        type="password" 
-                                        placeholder="******" 
-                                        required
-                                    ></IonInput>
-                                    <IonButton 
-                                        type="submit" 
-                                        expand="block" 
+                                        placeholder="******"
+                                        type="password"
+                                    />
+                                    <IonButton
+                                        type="submit"
+                                        expand="block"
                                         className="ion-margin-top"
                                     >
                                         Login
-                                        <IonIcon icon={logInOutline} slot="end"></IonIcon>
+                                        <IonIcon icon={logInOutline} slot="end" />
                                     </IonButton>
-                                    <IonButton 
-                                        routerLink='/register' 
-                                        color={'secondary'} 
-                                        type="button" 
-                                        expand="block" 
+                                    <IonButton
+                                        routerLink="/register"
+                                        type="button"
+                                        expand="block"
                                         className="ion-margin-top"
                                     >
                                         Create Account
-                                        <IonIcon icon={personCircleOutline} slot="end"></IonIcon>
+                                        <IonIcon icon={personCircleOutline} slot="end" />
                                     </IonButton>
-                                    
+
                                     <IonButton
                                         expand="block"
                                         onClick={doGoogleSignIn}
@@ -99,7 +103,7 @@ const Login: React.FC = () => {
                                         className="ion-margin-top"
                                     >
                                         Sign in with Google
-                                        <IonIcon icon={personCircleOutline} slot="end"></IonIcon>
+                                        <IonIcon icon={personCircleOutline} slot="end" />
                                     </IonButton>
                                 </form>
                             </IonCardContent>
@@ -109,10 +113,9 @@ const Login: React.FC = () => {
                             isOpen={showToast}
                             onDidDismiss={() => setShowToast(false)}
                             message="Successfully logged in!"
-                            duration={5000}
+                            duration={3000}
                             position="top"
-                            color="success" 
-                            cssClass="big-toast" 
+                            color="success"
                         />
                     </IonContent>
                 </IonPage>
@@ -122,3 +125,5 @@ const Login: React.FC = () => {
 };
 
 export default Login;
+
+

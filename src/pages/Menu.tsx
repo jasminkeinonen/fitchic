@@ -22,13 +22,24 @@ const Menu: React.FC = () => {
                     <IonItem button onClick={() => navigateTo('/login')}>
                         <IonLabel>Login</IonLabel>
                     </IonItem>
-                    <IonItem button onClick={() => navigateTo('/register')}>
-                        <IonLabel>Register</IonLabel>
+                    <IonItem button onClick={() => navigateTo('/home')}>
+                    <IonLabel>Home</IonLabel>
+                    </IonItem>
+                    <IonItem button onClick={() => navigateTo('/workout')}>
+                        <IonLabel> Workouts</IonLabel>
+                    </IonItem>
+                    <IonItem button onClick={() => navigateTo('/recipes')}>
+                        <IonLabel>Recipes</IonLabel>
                     </IonItem>
                     <IonItem button onClick={() => navigateTo('/list')}>
-                        <IonLabel> User List</IonLabel>
+                        <IonLabel> Friends</IonLabel>
                     </IonItem>
-                
+                    <IonItem button onClick={() => navigateTo('/about')}>
+                        <IonLabel>About</IonLabel>
+                        </IonItem>
+                        <IonItem button onClick={() => navigateTo('/contact')}>
+                        <IonLabel>Contact</IonLabel>
+                    </IonItem>
                     <IonItem button onClick={() => navigateTo('/settings')}>
                         <IonLabel>User Settings</IonLabel>
                     </IonItem>

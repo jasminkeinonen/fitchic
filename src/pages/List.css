@@ -1,5 +1,5 @@
 ion-item:hover {
-    --background: #5cffa8;
+    --background: #FFBCDA;
     --color: var(--ion-color-dark);
   }
   
@@ -8,6 +8,7 @@ ion-item:hover {
   }
   
   ion-item::part(detail-icon) {
-    color: #ff00ff;
+    color: #E20470;;
     opacity: 1;
   }
+  
